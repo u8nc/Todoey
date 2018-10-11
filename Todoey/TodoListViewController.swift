@@ -34,14 +34,13 @@ class TodoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(itemArray[indexPath.row])
-        
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+
         
         if ( tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark) {
-            print("turn it off")
+
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         } else {
-            print("turn it on")
+
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         
