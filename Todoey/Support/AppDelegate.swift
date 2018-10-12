@@ -21,23 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        print("App resigned Active")
+//        print("App resigned Active")
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("App entered background")
+//        print("App entered background")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        print("App enetered foreground")
+//        print("App enetered foreground")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        print("App became Active")
+//        print("App became Active")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        print("App terminated")
+//        print("App terminated")
     }
 
 
