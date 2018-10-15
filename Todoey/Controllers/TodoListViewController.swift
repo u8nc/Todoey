@@ -11,6 +11,10 @@ import CoreData
 
 class TodoListViewController: UITableViewController {
     
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     var itemArray = [Item]()
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     //    when was this told to be deleted ??
@@ -22,13 +26,11 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        searchBar.delegate = self
+        
         loadItems()
         
-        
-        //        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
-        //            itemArray = items
-        //         }
-        
+
     }
     
     // MARK - Tableview Datasource Methods
@@ -67,7 +69,7 @@ class TodoListViewController: UITableViewController {
         saveItems()
         
         // this is a point in the video that shows transcription is right where she got it wrong.
-        // this is not the place where you toggle checkmark
+        // this is not the pl  ace where you toggle checkmark
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -102,15 +104,15 @@ class TodoListViewController: UITableViewController {
     }
     
     
-    func loadItems() {
-        
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
         
         do {
             itemArray = try context.fetch(request)
         } catch {
             print("Error fetching data from context \(error)")
         }
+        
+        tableView.reloadData()
     }
     
     func saveItems() {
@@ -123,9 +125,5 @@ class TodoListViewController: UITableViewController {
         
         self.tableView.reloadData()
     }
-    
-    
-    
+
 }
-
-
